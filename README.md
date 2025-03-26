@@ -12,3 +12,6 @@ This is a list in markdown:
 - Two
 - Three
  
+Image
+
+![image](https://github.com/user-attachments/assets/c40f58c5-9453-4588-9cea-ee52dfb951d7)
