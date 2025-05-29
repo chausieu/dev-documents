@@ -1,1 +1,41 @@
-# Config.mdx
+import Link from 'next/link'
+import { PostCard } from 'nextra-theme-blog'
+import { getPosts, getTags } from '@/app/docs/get-posts'
+import {
+  Container
+} from '@mui/material'; 
+
+export const metadata = {
+  title: 'User Manuals',
+}
+ 
+export default async function PostsPage() {
+  const tags = await getTags()
+  const posts = await getPosts()
+  const allTags = Object.create(null)
+ 
+  for (const tag of tags) {
+    allTags[tag] ??= 0
+    allTags[tag] += 1
+  }
+  return (
+    <Container maxWidth="xl">
+      <div data-pagefind-ignore="all">
+        <h1>{metadata.title}</h1>
+        <div
+          className="not-prose"
+          style={{ display: 'flex', flexWrap: 'wrap', gap: '.5rem' }}
+        >
+          {Object.entries(allTags).map(([tag, count]) => {return tag &&(
+            <Link key={tag} href={`/docs/tags/${tag}`} className="nextra-tag">
+              {tag} ({count})
+            </Link>
+          )})}
+        </div>
+        {posts.map(post => (
+          <PostCard key={post.route} post={post} />
+        ))}
+      </div>
+    </Container>
+  )
+}
