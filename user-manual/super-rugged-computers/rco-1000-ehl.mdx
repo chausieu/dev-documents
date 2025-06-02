@@ -1,0 +1,3169 @@
+---
+title: RCO-1000-EHL
+description: RCO-1000-EHL-10 Fanless Mini Computer with Intel® Atom® X6425E Processor, 2x DP, 2x COM, 1x 2.5" SATA HDD Bay
+version: 1.0
+---
+
+# USER’S
+
+# MANUAL
+
+## RCO- 1000 - EHL Series
+
+## Compact Fanless Embedded System
+
+
+## Table of Contents
+
+
+- Prefaces
+   - Revision
+   - Disclaimer
+   - Copyright Notice
+   - Trademarks Acknowledgment
+   - Environmental Protection Announcement
+   - Safety Precautions
+   - Technical Support and Assistance
+   - Conventions Used in this Manual
+   - Package Contents
+   - Ordering Information
+   - Optional Accessory
+- Chapter 1 Product Introductions
+      - 1.1 Overview
+            - 1.1.1 Key Feature
+      - 1.2 Hardware Specification
+      - 1.3 System I/O
+            - 1.3.1 RCO- 1000 - EHL-10
+            - 1.3.2 RCO- 1000 - EHL-20
+            - 1.3.3 RCO- 1000 - EHL-30
+      - 1.4 Mechanical Dimension
+            - 1.4.1 RCO- 1000 - EHL-10
+            - 1.4.2 RCO- 1000 - EHL-20
+            - 1.4.3 RCO- 1000 - EHL-30
+- Chapter 2 Switches and Connectors
+      - 2.1 Switch and connector Locations
+            - 2.1.1 Top View
+            - 2.1.2 Bottom View
+            - 2.1.3 Daughterboard view
+         - 2.2 Connector / Switch Definition
+         - 2.3 Switch Definitions
+- Chapter 3 System Setup
+            - unscrewing 3.1 Set torque force to 3.5 kgf-cm to execute all the screwing and
+      - 3.2 Removing chassis bottom cover
+      - 3.3 Removing HDD bracket
+      - 3.4 Removing chassis top cover
+      - 3.5 Installing SODIMM
+      - 3.6 Installing Mini PCIe card / mSATA
+      - 3.7 Installing antenna
+      - 3.8 Assemble chassis top cover
+      - 3.9 Installing SATA HDD
+      - 3.10 Assemble chassis bottom cover
+      - 3.11 Installing SIM card
+   - 3.12 Installing wall mount kit
+   - 3.13 Installing VESA mount kit
+   - 3.14 Installing side mount kit
+   - 3.15 Installing DIN rail holder
+- Chapter 4 BIOS Setup
+   - 4.1 BIOS Introduction
+   - 4.2 Main Setup
+   - 4.3 Advanced Setup
+      - 4.3.1 CPU Configuration
+      - 4.3.2 PCH-FW Configuration
+      - 4.3.3 SATA and RST Configuration
+      - 4.3.4 Trusted Computing
+      - 4.3.5 ACPI Settings
+      - 4.3.6 Super IO Configuration
+      - 4.3.7 Hardware Monitor
+      - 4.3.8 Power IGN Mode
+      - 4.3.9 Serial Port Console Redirection
+      - 4.3.10 USB Configuration
+      - 4.3.11 Network Stack Configuration
+   - 4.4 Chipset
+      - 4.4.1 System Agent (SA) Configuration
+      - 4.4.2 PCH-IO Configuration
+   - 4.5 Security
+   - 4.6 Boot
+   - 4.7 Save & Exit
+- Appendix WDT & GPIO
+   - WDT Sample Code
+   - GPIO Sample Code
+
+
+### Revision
+
+### Disclaimer
+
+All specifications and information in this User’s Manual are believed to be accurate and up to date. Premio
+Solution Inc. does not guarantee that the contents herein are complete, true, accurate or non-misleading.
+The information in this document is subject to change without notice and does not represent a
+commitment on the part of PremioInc.
+PremioInc. disclaims all warranties, express or implied, including, without limitation, those of
+merchantability, fitness for a particular purpose with respect to contents of this User’s Manual. Users must
+take full responsibility for the application of the product.
+
+### Copyright Notice
+
+All rights reserved. No part of this manual may be reproduced or transmitted in any form or by any means,
+electronic or mechanical, including photocopying, recording, or information storage and retrieval systems,
+without the prior written permission of Premio Inc. Copyright © Premio Inc.
+
+### Trademarks Acknowledgment
+
+Intel®, Celeron® and Pentium® are trademarks of Intel Corporation.
+Windows® is registered trademark of Microsoft Corporation.
+AMI is trademark of American Megatrend Inc.
+IBM, XT, AT, PS/2 and Personal System/2 are trademarks of International Business Machines Corporation
+All other products and trademarks mentioned in this manual are trademarks of their respective owners.
+
+### Environmental Protection Announcement
+
+Do not dispose this electronic device into the trash while discarding. Please recycle to minimize pollution
+and ensure environment protection.
+
+## Prefaces
+
+```
+Revision Description Date
+```
+```
+1.0 Manual Released 2022/11/
+```
+
+### Safety Precautions
+
+```
+Before installing and using the equipment, please read the following precautions:
+⚫Put this equipment on a reliable surface during installation. Dropping it or letting it fall could
+```
+```
+cause damage.
+```
+```
+⚫The power outlet shall be installed near the equipment and shall be easily accessible.
+⚫Turn off the system power and disconnect the power cord from its source before making any
+```
+```
+installation. Be sure both the system and the external devices are turned OFF. Sudden surge
+⚫of power could ruin sensitive components. Make sure the equipment is properly grounded.
+```
+```
+⚫When the power is connected, never open the equipment. The equipment should be opened
+```
+```
+only by qualified service personnel.
+⚫Make sure the voltage of the power source is correct before connecting the equipment to the
+```
+```
+power outlet.
+⚫Disconnect this equipment from the power before cleaning. Use a damp cloth. Do not use
+```
+```
+liquid or spray detergents for cleaning.
+```
+```
+⚫Avoid the dusty, humidity and temperature extremes.
+⚫Do not place heavy objects on the equipment.
+```
+```
+⚫If the equipment is not used for long time, disconnect it from the power to avoid being
+damaged by transient over-voltage.
+```
+```
+⚫The storage temperature shall be above - 40 °C and below 85°C.
+```
+```
+⚫The computer is provided with a battery-powered real-time clock circuit. There is a danger of
+explosion if incorrectly replaced. Replace only with the same or equivalent type
+```
+```
+recommended by the manufacturer.
+⚫If one of the following situation arises, get the equipment checked be service personnel:
+```
+- The power cord or plug is damaged.
+- Liquid has penetrated into the equipment.
+- The equipment has been exposed to moisture.
+- The equipment does not work well or it cannot work according the user’s manual.
+- The equipment has been dropped and damaged.
+- The equipment has obvious signs of breakage.
+
+**Preface**
+
+
+### Technical Support and Assistance
+
+1. Visit the Premio Inc website at [http://www.premioinc.comwhere](http://www.premioinc.comwhere) you can find the latest information about
+
+```
+the product.
+```
+2. Contact your distributor, our technical support team or sales representative for technical support if
+
+```
+you need additional assistance. Please have following information ready before you call:
+```
+```
+⚫ Model name and serial number
+```
+```
+⚫ Description of your peripheral attachments
+```
+```
+⚫ Description of your software (operating system, version, application software, etc.)
+```
+```
+⚫ A complete description of the problem
+```
+```
+⚫ The exact wording of any error messages
+```
+### Conventions Used in this Manual
+
+**Preface**
+
+```
+This indication alerts operators to an operation that, if not strictly observed,
+may result in severe injury.
+```
+###### W
+
+###### ARNING
+
+```
+This indication alerts operators to an operation that, if not strictly observed,
+may result in safety hazards to personnel or damage to equipment.
+```
+###### CAUTION
+
+```
+This indication provides additional information to complete a task easily.
+```
+###### NOTE
+
+
+### Package Contents
+
+```
+Before installation, please ensure all the items listed in the following table are included in the package.
+```
+```
+Item Description Q’ty
+```
+```
+1 RCO- 1000 - EHL Series Embedded System 1
+```
+```
+2 Wall Mount KIT 1
+```
+```
+3 Accessory Kit 1
+```
+### Ordering Information
+
+**Preface**
+
+```
+Model No. Product Description
+```
+```
+RCO- 1000 - EHL-X6425E- 10
+Compact fanlessembedded system with Intel x6425E CPU,
+2x DP, 2x COM, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-X6425E-10A
+Compact fanlessembedded system with Intel x6425E CPU,
+3x DP, 2x COM, DIO, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-X6425E-10B
+```
+```
+Compact fanlessembedded system with Intel x6425E CPU,
+2x DP, 4x COM, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-X6425E-10U
+Compact fanlessembedded system with Intel x6425E CPU,
+2x DP, 2x COM, 4x USB, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-X6425E-10H
+Compact fanlessembedded system with Intel x6425E CPU,
+2x DP, 1x HDMI, 2x COM, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-X6425E-10G
+```
+```
+Compact fanlessembedded system with Intel x6425E CPU,
+2x DP, 2x COM, 1x 2.5" SATA HDD Bay, Power Ignition
+```
+```
+RCO- 1000 - EHL-J6413- 10
+Compact fanlessembedded system with Intel J6413 CPU,
+2x DP, 2x COM, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-J6413-10A
+Compact fanlessembedded system with Intel J6413CPU,
+3x DP, 2x COM, DIO, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-J6413-10B
+```
+```
+Compact fanlessembedded system with Intel J6413CPU,
+2x DP, 4x COM, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-J6413-10U
+Compact fanlessembedded system with Intel J6413CPU,
+2x DP, 2x COM, 4x USB, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-J6413-10H
+Compact fanlessembedded system with Intel J6413CPU,
+2x DP, 1x HDMI, 2x COM, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-J6413-10G
+```
+```
+Compact fanlessembedded system with Intel J6413CPU,
+2x DP, 2x COM, 1x 2.5" SATA HDD Bay, Power Ignition
+```
+- **RCO- 1000 - EHL-10 Series**
+
+
+**Preface**
+
+```
+Model No. Product Description
+```
+```
+RCO- 1000 - EHL-X6425E-20C
+```
+```
+Compact fanlessembedded system with Intel x6425E CPU,
+3x DP, 2x COM, DIO, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-X6425E-20D
+Compact fanlessembedded system with Intel x6425E CPU,
+2x DP, 4x COM, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-J6413-20C
+Compact fanlessembedded system with Intel J6413CPU,
+3x DP, 2x COM, DIO, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-J6413-20D
+Compact fanlessembedded system with Intel J6413CPU,
+2x DP, 4x COM, 1x 2.5" SATA HDD Bay
+```
+- **RCO- 1000 - EHL-20 Series**
+
+```
+Model No. Product Description
+```
+```
+RCO- 1000 - EHL-X6425E-30C
+Compact fanlessembedded system with Intel x6425E CPU,
+3x DP, 2x COM, DIO, 1x 2.5" SATA HDD Bay
+```
+```
+RCO- 1000 - EHL-J6413-30C
+Compact fanlessembedded system with Intel J6413CPU,
+3x DP, 2x COM, DIO, 1x 2.5" SATA HDD Bay
+```
+- **RCO- 1000 - EHL-30 Series**
+
+### Optional Accessory
+
+```
+Model No. Product Description
+```
+```
+1 - E09A06008 Adapter AC/DC 12V 5A 60W with 3pin Terminal Block Plug 5.0mm Pitch
+```
+```
+SFICBL022 Power Cord, 3-pin US Type, 180cm
+```
+```
+1 - TPCD00002 Power Cord, European Type, 180cm
+```
+```
+1 - TPCD00001 Power Cord, 3-pin UK Type, 180cm
+```
+```
+3 - SIDE- 0002 RCO- 1000 - EHL-10 Series Side Mount Kit
+```
+```
+3 - SIDE- 0003 RCO- 1000 - EHL-20 Series Side Mount Kit
+```
+```
+3 - SIDE- 0004 RCO- 1000 - EHL-30 Series Side Mount Kit
+```
+```
+3 - VESA- 0003 RCO-1000 Series VESA Mount Kit
+```
+```
+3 - DINR- 0004 DIN-Rail-2 Mount Kit
+```
+
+## Chapter 1 Product Introductions
+
+
+- **RCO- 1000 - EHL- 10**
+- **RCO- 1000 - EHL-10A**
+- **RCO- 1000 - EHL-10B**
+- **RCO- 1000 - EHL-10U**
+- **RCO- 1000 - EHL-10H**
+- **RCO- 1000 - EHL-10G**
+    - **RCO- 1000 - EHL- 20**
+    - **RCO- 1000 - EHL-20C**
+    - **RCO- 1000 - EHL-20D**
+       - **RCO- 1000 - EHL-30C**
+
+#### 1.1 Overview
+
+```
+Based on Intel® Atom x6425E (2.0GHz) Quad Core processor or Celeron® J6413 (1.8GHz) Quad Core
+processor, RCO- 1000 - EHL series is a high variety and diversity fanlessembedded system. It offers
+modularize expansion I/O, rich connectivity interfaces, wide range (9~36V) DC power input, and high
+reliability even operating in temperature extremes (- 40 °C to 70°C, Intel Embedded Series).
+```
+```
+Featuring with completely cable-less designed, high functional, one-piece housing design, and anti-
+vibration, RCO- 1000 - EHL series are ruggedized systems that can operate in harsh environments and
+easy to install and maintain. A build in over voltage protection (OVP), over current protection (OCP),
+reserve voltage protection, and wide range DC power input makes RCO- 1000 - EHL series are safety
+system for all industrial applications.
+```
+**Chapter 1: Product Introductions**
+
+```
+Model No. Rear Panel Front Panel
+```
+```
+RCO- 1000 - EHL- 10
+```
+```
+RCO- 1000 - EHL-10A
+ExpanslonModules:
+1x DP Port and 1x DIO (4in/4out, Isolated)
+```
+```
+RCO- 1000 - EHL-10B
+ExpanslonModules:
+2x COM Ports
+```
+```
+RCO- 1000 - EHL-10U
+ExpanslonModules:
+4x USB Ports
+```
+```
+RCO- 1000 - EHL-10H
+ExpanslonModules:
+1x HDMI Port
+```
+```
+RCO- 1000 - EHL-10G
+(Power Ignition)
+```
+
+###### 1.1.1 Key Feature
+
+```
+⚫Support Intel Atom /Celeron® Processor
+⚫1x 260-pin DDR4 SODIMM. Max. up to 32GB
+```
+```
+⚫Dual Independent Display by 2x Display Port
+```
+```
+⚫2x Intel® GbEsupporting Wake-on-LAN and PXE
+⚫1x 2.5” SATA HDD Bay, 1x mSATA,
+```
+```
+⚫1x M.2 (B Key, 2242/3042/3052, Support 4G/5G)
+⚫1x Full-size mini PCIefor communication or expansion modules
+```
+```
+⚫2x RS-232/422/485, 3x USB 3.2 Gen2, 1x USB 2.
+```
+```
+⚫9 to 36VDC Wide Range Power Input Supporting AT/ATX Mode
+⚫Wide Operating Temperature - 40 °C to 70°C (Intel Embedded Series)
+```
+```
+⚫TPM 2.0 Supported
+⚫Up to 5x Universal Expansion Slots
+```
+```
+⚫UL Listed
+```
+**Chapter 1: Product Introductions**
+
+```
+Model No. Rear Panel Front Panel
+```
+```
+RCO- 1000 - EHL- 20
+```
+```
+RCO- 1000 - EHL-20C
+ExpanslonModules:
+2x COM Ports,
+1x DP Port and 1x DIO (4in/4out, Isolated)
+```
+```
+RCO- 1000 - EHL-20D
+ExpanslonModules:
+4x COM Ports
+```
+```
+Model No. Rear Panel Front Panel
+```
+```
+RCO- 1000 - EHL-30C
+ExpanslonModules:
+4x COM Ports,
+1x DP Port and 1x DIO (4in/4out, Isolated)
+```
+
+**Chapter 1: Product Introductions**
+
+#### 1.2 Hardware Specification
+
+```
+System
+```
+```
+Processor
+Supports 11th Gen Intel® Celeron® / Atom® Processors X
+Series (Elkhart Lake)
+```
+- **Intel PC Client Series:**
+Intel® Celeron® Processor J6413, Quad Core, 1.5 MB Cache,
+1.8 GHz, 10W TDP
+- **Intel® Embedded Series:**
+Intel® Atom® Processor x6425E, Quad Core, 1.5 MB Cache,
+1.8 GHz, 12W TDP
+
+```
+System
+Chipset SoCintegrated
+```
+```
+LAN Chipset
+```
+- 1 GbE1: Intel I
+    (Support Wake-on-LAN and PXE)
+- 2.5 GbE2: Intel I
+    (Support Wake-on-LAN and PXE)
+
+```
+Audio Codec RealtekALC888S
+```
+```
+System
+Memory
+```
+```
+1x 260-Pin DDR
+2400/2667/3200MT/s SODIMM.
+Max. up to 32GB
+```
+```
+Graphics Intel® UHD Graphics
+```
+```
+BIOS AMI 256Mbit SPI BIOS
+```
+```
+Watchdog Software Programmable Supports 1~255 sec. System Reset
+```
+```
+TPM TPM 2.
+```
+```
+Display
+DisplayPort 2x DisplayPort 1.4, DP++
+(4096 x 2160@60Hz)
+```
+```
+Multiple Display Dual Display
+```
+```
+Storage
+```
+```
+SSD/HDD 1x Internal 2.5" SATA HDD Bay (support H=9.5 mm)
+```
+```
+mSATA 1x mSATA (shared by 1x Mini PCI Express)
+```
+```
+M.2 1x M.2 (B Key, 2242/3042/3052, + USB 3.2 Gen2, Support 4G/5G Module)PCIex^1
+```
+```
+SIM Socket 2x External SIM socket
+```
+```
+I/O
+COM 2x RS-232/422/
+USB 3x USB 3.2 Gen 2 (10 Gbps), 1x USB 2.
+LAN 2x RJ45 (2.5 & 1 GbE)
+Audio 1x Mic-in, 1x Line-out
+CAN 2x CAN 2.0 A/B 2-pin Internal header
+```
+```
+Universal I/OBracket
+```
+```
+RCO- 1000 - EHL- 10 ： 1x Universal I/O Bracket (By mini PCIe interface, Premio Proprietary Module)
+RCO- 1000 - EHL- 20 ： 3x Universal I/O Bracket (By mini PCIe interface, Premio Proprietary Module)
+RCO- 1000 - EHL- 30 ： 5x Universal I/O Bracket (By mini PCIe interface, Premio Proprietary Module)
+```
+```
+Others
+```
+```
+5x WiFiAntenna Holes
+1x Power Switch, 1x AT/ATX Switch, 1x Remote Power On/Off
+1x Internal CMOS Battery Cable
+1x 4-PIN FAN Connector
+```
+```
+Expansion
+```
+```
+Mini PCI
+Express 1x Full-size Mini PCIe
+```
+```
+Expansion
+Modules
+```
+```
+Optional:
+```
+- 2-port COM module with Super I/O
+Chipset
+- 4-Port USB module with USB hub
+- 1-Port DP 1.4 and DIO (4 in / 4 out,
+Isolated)
+- 1-Port HDMI 2.
+
+```
+Operating System
+```
+```
+Windows Windows 10
+```
+```
+Linux Linux kernel
+```
+
+**Chapter 1: Product Introductions**
+
+```
+Environment
+```
+```
+Operating Temp.
+```
+```
+0 °C to 60°C (Supported by Intel® PC
+Client Series: J6413)
+```
+- 40 °C to 70°C (Supported by Intel®
+Embedded Series: x6425E)
+Storage Temp. - 40 °C to 85°C
+
+```
+Relative
+Humidity 10% to 95% (non-condensing)
+```
+```
+Vibration
+```
+- With SSD:
+    5 Grms, 5 -500 Hz, 0.5 hr/axis
+- With HDD:
+    1 Grms, 5 -500 Hz, 0.5 hr/axis
+
+```
+Shock With SSD: 50G, half sine, 11ms
+```
+```
+Standards /
+Certification
+UL 62368 Ed. 3, CE, FCC Class A
+```
+```
+Physical
+```
+```
+Construction Extruded Aluminum with Heavy Duty Metal
+```
+```
+Dimension
+```
+- RCO- 1000 - EHL- 10 ：
+    150 (W) x 105 (D) x 49 (H) mm
+- RCO- 1000 - EHL- 20 ：
+    150 (W) x 105 (D) x 66 (H) mm
+- RCO- 1000 - EHL- 30 ：
+    150 (W) x 105 (D) x 83 (H) mm
+
+```
+Weight
+```
+- RCO- 1000 - EHL- 10 ：0.9 kg
+    RCO- 1000 - EHL- 20 ：1.0 kg
+- RCO- 1000 - EHL- 30 ：1.2 kg
+
+```
+Mounting
+```
+- Wall Mounting
+- SIDE/VESA/DIN-Rail Mounting
+    (Optional)
+
+```
+Power
+Power Mode AT, ATX
+Power Supply Voltage 9~36VDC
+```
+```
+Power Ignition Sensing Adjustable power ignition management can be achieved through BIOS and optional daughter board.
+```
+```
+Power Connector 3 - pin Terminal Block
+```
+```
+Power Adaptor Optional AC/DC 12V/5A, 60W
+```
+```
+Power Protection
+```
+```
+OVP (Over Voltage Protection)
+OCP (Over Current Protection)
+Reverse Protection
+```
+
+#### 1.3 System I/O
+
+###### 1.3.1 RCO- 1000 - EHL-10
+
+###### Front Panel
+
+- **ATX power on/off switch**
+    Press to power-on or power-off the system
+- **AT/ATX mode select switch**
+    Used to select AT or ATX power mode
+- **Power LED**
+    Indicates the power status of the system
+- **HDD LED**
+    Indicates the status of the hard drive
+- **WachdogLED**
+    Indicates the watchdog status of the system
+- **USB 3.2 Gen 2**
+    Used to connect USB 3.2 device
+- **USB 2.0 port**
+    Used to connect USB 2.0 device
+       - **SIM card**
+          Used to insert a SIM card
+       - **LAN port**
+          Used to connect the system to a local area
+          network
+       - **Line-out**
+          Used to connect a speaker
+       - **Mic-in**
+          Used to connect a microphone
+       - **Remote power on/off**
+          Used to plug a power on/off with terminal
+          block
+       - **Reset Hole**
+          Used to reset the system
+       - **Antenna hole**
+          Used to connect an antenna for optional
+             Mini-PCIeWiFimodule
+
+```
+Chapter 1: Product Introductions
+```
+
+###### 1.3.1 RCO- 1000 - EHL- 10
+
+###### Rear Panel
+
+- **DC IN**
+    Used to plug a DC power input with terminal
+    block
+- **DisplayPort**
+    Used to connect a DisplayPort monitor
+- **COM port**
+    COM1 ~ COM2 support RS232/422/485 serial
+    device
+       - **Antenna hole**
+          Used to connect an antenna for optional
+          Mini-PCIeWiFimodule
+       - **Expandable I/O bracket**
+          Used to customized I/O output
+
+```
+Chapter 1: Product Introductions
+```
+```
+Available Expansion Module Options for Rear Panel
+```
+
+###### 1.3.2 RCO- 1000 - EHL-20
+
+###### Front Panel
+
+- **ATX power on/off switch**
+    Press to power-on or power-off the system
+- **AT/ATX mode select switch**
+    Used to select AT or ATX power mode
+- **Power LED**
+    Indicates the power status of the system
+- **HDD LED**
+    Indicates the status of the hard drive
+- **WachdogLED**
+    Indicates the watchdog status of the system
+- **USB 3.2 Gen 2**
+    Used to connect USB 3.2 device
+- **USB 2.0 port**
+    Used to connect USB 2.0 device
+       - **SIM card**
+          Used to insert a SIM card
+       - **LAN port**
+          Used to connect the system to a local area
+          network
+       - **Line-out**
+          Used to connect a speaker
+       - **Mic-in**
+          Used to connect a microphone
+       - **Remote power on/off**
+          Used to plug a power on/off with terminal
+          block
+       - **Reset Hole**
+          Used to reset the system
+       - **Antenna hole**
+          Used to connect an antenna for optional
+             Mini-PCIeWiFimodule
+
+```
+Chapter 1: Product Introductions
+```
+
+###### 1.3.2 RCO- 1000 - EHL- 20
+
+###### Rear Panel
+
+- **DC IN**
+    Used to plug a DC power input with terminal
+    block
+- **DisplayPort**
+    Used to connect a DisplayPort monitor
+- **COM port**
+    COM1 ~ COM2 support RS232/422/485 serial
+    device
+       - **Antenna hole**
+          Used to connect an antenna for optional
+          Mini-PCIeWiFimodule
+       - **Expandable I/O bracket**
+          Used to customized I/O output
+
+```
+Chapter 1: Product Introductions
+```
+```
+Available Expansion Module Options for Rear Panel
+```
+
+###### 1.3.3 RCO- 1000 - EHL-30
+
+###### Front Panel
+
+- **ATX power on/off switch**
+    Press to power-on or power-off the system
+- **AT/ATX mode select switch**
+    Used to select AT or ATX power mode
+- **Power LED**
+    Indicates the power status of the system
+- **HDD LED**
+    Indicates the status of the hard drive
+- **WachdogLED**
+    Indicates the watchdog status of the system
+- **USB 3.2 Gen 2**
+    Used to connect USB 3.2 device
+- **USB 2.0 port**
+    Used to connect USB 2.0 device
+       - **SIM card**
+          Used to insert a SIM card
+       - **LAN port**
+          Used to connect the system to a local area
+          network
+       - **Line-out**
+          Used to connect a speaker
+       - **Mic-in**
+          Used to connect a microphone
+       - **Remote power on/off**
+          Used to plug a power on/off with terminal
+          block
+       - **Reset Hole**
+          Used to reset the system
+       - **Antenna hole**
+          Used to connect an antenna for optional
+             Mini-PCIeWiFimodule
+
+```
+Chapter 1: Product Introductions
+```
+
+###### 1.4.1 RCO- 1000 - EHL-10
+
+###### Rear Panel
+
+- **DC IN**
+    Used to plug a DC power input with terminal
+    block
+- **DisplayPort**
+    Used to connect a DisplayPort monitor
+- **COM port**
+    COM1 ~ COM2 support RS232/422/485 serial
+    device
+       - **Antenna hole**
+          Used to connect an antenna for optional
+          Mini-PCIeWiFimodule
+       - **Expandable I/O bracket**
+          Used to customized I/O output
+
+```
+Chapter 1: Product Introductions
+```
+```
+Available Expansion Module Options for Rear Panel
+```
+
+#### 1.4 Mechanical Dimension
+
+**1.4.1 RCO- 1000 - EHL-** (^10) Unit: mm
+**Chapter 1: Product Introductions**
+
+
+**1.4.2 RCO- 1000 - EHL-** (^20) Unit: mm
+**Chapter 1: Product Introductions**
+
+
+**1.4.3 RCO- 1000 - EHL-** (^30) Unit: mm
+**Chapter 1: Product Introductions**
+
+
+## Chapter 2 Switches and Connectors
+
+
+```
+COM1
+```
+```
+DP2
+```
+#### 2.1 Switch and connector Locations
+
+###### 2.1.1 Top View
+
+```
+Chapter 2: Switches and Connectors
+```
+```
+COM2
+```
+```
+DP1
+```
+```
+DC_IN1
+```
+```
+JP1
+```
+```
+PWR_SW1
+```
+```
+HDD_LED1
+```
+```
+PWR_LED1
+```
+```
+USB2_1
+```
+```
+USB3_3
+```
+```
+USB3_2
+```
+```
+USB3_1
+```
+```
+LAN2
+```
+```
+LAN1
+```
+LINE_OUT1
+
+```
+MIC_IN1
+```
+```
+PWR_SW2
+```
+```
+SODIMM1
+```
+
+###### 2.1.2 Bottom View
+
+```
+Chapter 2: Switches and Connectors
+```
+```
+AT_ATX1
+```
+RST_LED1
+
+```
+CAN1
+CAN2
+```
+```
+FAN
+```
+```
+SATA1
+```
+```
+M.2_KB1
+```
+```
+MPCIE1
+```
+```
+BTB_FH1
+```
+```
+RESET1
+```
+
+###### 2.1.3 Daughterboard view
+
+**Chapter 2: Switches and Connectors**
+
+```
+SW1
+```
+
+##### 2.2 Connector / Switch Definition
+
+```
+List of Connector / Switch
+```
+```
+Connector Location Definition
+```
+```
+DC_IN1 3 - pin DC +9~ 36 V Power Input Connector
+```
+```
+PWR_SW1 Power Switch
+```
+```
+PWR_SW2 Remote Power Switch
+```
+```
+DP1 - 2 Display Port
+```
+```
+COM1 - 2 RS232 / RS422 / RS485 Connector
+```
+```
+USB2_1 USB2.0 Port
+```
+```
+USB3_1 - 3 USB 3.2 Gen 2 Port
+```
+```
+LAN1 1G bit/s LAN Port
+```
+```
+LAN2 2.5G bit/s LAN Port
+```
+```
+MIC_IN1 Mic-in Jack
+```
+```
+LINE_OUT1 LINE-OUT Jack
+```
+```
+PWR_LED1 Power LED Status
+```
+```
+HDD_LED1 HDD Access LED Status
+```
+```
+AT_ATX1 AT / ATX Power Mode Switch
+```
+```
+SATA1 SATA with Power Connector
+```
+```
+FAN Smart FAN Connector
+```
+```
+CAN1 - 2 CAN Bus Connector
+```
+```
+MPCIE1 Mini PCI-Express Socket
+```
+```
+M.2_KB1 M.2 B-Key Socket
+```
+```
+RESET1 Reset Switch
+```
+```
+RST_LED1 Reset LED Status
+```
+```
+SIM1, SIM2 SIM Card Socket
+```
+```
+DIO1 4DI/DO Connector
+```
+```
+CN1 - 2 RS232 / RS422 / RS485 Connector
+```
+```
+SW1 PC mode / CAR mode select
+```
+**Chapter 2: Switches and Connectors**
+
+
+```
+Switch Definition
+```
+```
+1 9~ 36 VIN
+```
+```
+3 GND
+```
+##### 2.3 Switch Definitions
+
+```
+Pin Definition Pin Definition
+```
+```
+1 NC 4 GND
+```
+```
+2 Power Button 5 NC
+```
+```
+3 NC 6 GND
+```
+**Chapter 2: Switches and Connectors**
+
+```
+Connector Type: Terminal Block 1X2 2-pin, 3.5mm pitch
+```
+```
+Pin Definition
+```
+```
+1 Power Button
+```
+```
+2 GND
+```
+```
+2.3.1 DC Power Input Connector (+9~36V)
+```
+```
+2.3.2 Power Button
+```
+```
+2.3.3 Remote Power Switch
+```
+```
+DC_IN1
+Connector Type: Terminal Block 1X3 3-pin, 5.0mm pitch
+```
+```
+PWR_SW1
+```
+```
+PWR_SW2
+```
+
+**Chapter 2: Switches and Connectors**
+
+```
+Pin Definition Pin Definition
+```
+```
+1 DP_LANE0_P 11 GND
+```
+```
+2 GND 12 DP_LANE3_N
+```
+```
+3 DP_LANE0_N 13 GND
+```
+```
+4 DP_LANE1_P 14 GND
+```
+```
+5 GND 15 DP_AUX_P
+```
+```
+6 DP_LANE1_N 16 GND
+```
+```
+7 DP_LANE2_P 17 DP_AUX_N
+```
+```
+8 GND 18 DP_HPD
+```
+```
+9 DP_LANE2_N 19 GND
+```
+```
+10 DP_LANE3_P 20 DP_PWR
+```
+```
+2.3.4 DisplayPort Connector
+```
+```
+DP1- 2
+```
+
+**Chapter 2: Switches and Connectors**
+
+```
+COM1- 2
+Connector Type: 9-pin D-Sub
+```
+```
+Pin RS232 Definition
+RS422 / 485 Full Duplex
+Definition
+```
+```
+RS485 Half Duplex
+Definition
+```
+```
+1 DCD2 TX2- DATA2-
+```
+```
+2 RxD2 TX2+ DATA2+
+```
+```
+3 TxD2 RX2+
+```
+```
+4 DTR2 RX2-
+```
+```
+5 GND
+```
+```
+6 DSR2
+```
+```
+7 RTS2
+```
+```
+8 CTS2
+```
+```
+9 RI2
+```
+```
+2.3.5 RS232 / RS422 / RS485 Connector
+```
+
+**Chapter 2: Switches and Connectors**
+
+```
+USB3_1- 3
+```
+```
+Pin Definition Pin Definition
+```
+```
+1 +5V 6 USB3_RX+
+```
+```
+2 USB2_DATA1- 7 GND
+```
+```
+3 USB2_DATA1+ 8 USB3_TX-
+```
+```
+4 GND 9 USB3_TX+
+```
+```
+5 USB3_RX-
+```
+```
+2.3.7 USB 3.2 Connector, Type A
+```
+```
+USB2_1
+```
+```
+2.3.6 USB2.0 Connector, Type A
+```
+```
+Pin Definition
+```
+```
+1 +5V
+```
+```
+2 USB2_D2-
+```
+```
+3 USB2_D2+
+```
+```
+4 GND
+```
+
+**Chapter 2: Switches and Connectors**
+
+```
+Pin Definition Pin Definition
+```
+```
+1 LAN1_MDI0P 5 LAN1_MDI2N
+```
+```
+2 LAN1_MDI0N 6 LAN1_MDI1N
+```
+```
+3 LAN1_MDI1P 7 LAN1_MDI3P
+```
+```
+4 LAN1_MDI2P 8 LAN1_MDI3N
+```
+```
+Link LED Status Definition Act LED Status Definition
+```
+```
+Steady Orange 1Gbps Network Link Blinking Yellow Data Activity
+```
+```
+Steady Green 100Mbps Network Link Off No Activity
+```
+```
+Off 10Mbps Network Link
+```
+```
+LAN1
+```
+```
+2.3.8 RJ45 with LEDs Port
+```
+```
+Pin Definition Pin Definition
+```
+```
+1 LAN1_MDI0P 5 LAN1_MDI2N
+```
+```
+2 LAN1_MDI0N 6 LAN1_MDI1N
+```
+```
+3 LAN1_MDI1P 7 LAN1_MDI3P
+```
+```
+4 LAN1_MDI2P 8 LAN1_MDI3N
+```
+```
+Link LED Status Definition Act LED Status Definition
+```
+```
+Steady Orange 1Gbps Network Link Blinking Yellow Data Activity
+```
+```
+Steady Green 2.5Gbps Network Link Off No Activity
+```
+```
+Off 10Mbps Network Link
+```
+```
+LAN2
+```
+
+**Chapter 2: Switches and Connectors**
+
+```
+2.3.9 Microphone Jack (Pink)
+```
+```
+MIC_IN1
+Connector Type: 5-pin Phone Jack
+```
+```
+Pin Definition
+1 GND
+2 MIC_R
+3 NC
+4 GND
+5 MIC_L
+```
+```
+Pin Definition
+1 GND
+2 OUT_R
+3 NC
+4 GND
+5 OUT_L
+```
+```
+2.3.10 Line-out Jack (Green)
+```
+```
+LINE_OUT1
+Connector Type: 5-pin Phone Jack
+```
+```
+PWR_LED1: Power LED Status
+```
+```
+Pin Definition
+```
+```
+1 POWER LED+
+```
+```
+2 POWER LED-
+```
+```
+Pin Definition
+```
+```
+1 HDD LED+
+```
+```
+2 HDD LED-
+```
+```
+HDD_LED1: HDD Access LED Status
+```
+```
+RESET1 : Reset Button
+```
+```
+Pin Definition
+```
+```
+1 RESET
+```
+```
+2 GND
+```
+```
+Pin Definition
+```
+```
+1 RST LED
+```
+```
+2 RST LED
+```
+```
+RST_LED1: Power LED Status
+```
+
+**Chapter 2: Switches and Connectors**
+
+```
+2.3.11 AT / ATX Power Mode Switch
+```
+```
+AT_ATX1
+```
+```
+Switch Definition
+```
+```
+1 - 2 (Right) ATX Power Mode（Default）
+```
+```
+2 - 3 (Left) AT Power Mode
+```
+```
+SATA1
+```
+```
+Pin Definition Pin Definition
+1 GND 12 GND
+2 SATA_TXP1 13 GND
+3 SATA_TXN1 14 +5V
+4 GND 15 +5V
+5 SATA_RXN1 16 +5V
+6 SATA_RXP1 17 GND
+7 GND 18 GND
+8 +3.3V 19 GND
+9 +3.3V 20 +12V
+10 +3.3V 21 +12V
+11 GND 22 +12V
+```
+```
+2.3.12 SATA with Power Connector
+```
+
+**Chapter 2: Switches and Connectors**
+
+```
+2.3.13 Smart FAN Connector
+```
+```
+FAN
+```
+```
+Pin Definition
+```
+(^1) GND
+2 +12V
+3 FANIN
+4 FANCTL
+**Pin Definition**
+1 CAN_L
+2 CAN_H
+**2.3.14 CAN Bus Connector
+CAN 1- 2**
+
+
+**Chapter 2: Switches and Connectors**
+
+```
+Pin Definition Pin Definition Pin Definition
+1 WAKE# 19 NC 37 GND
+2 +3.3V 20 +3.3V 38 USB_DP1
+```
+```
+3 NC 21 GND 39 +3.3V
+4 GND 22 MINIPCIE RST# 40 GND
+```
+```
+5 NC 23 MINIPCIE_RXN1 41 +3.3V
+6 +1.5V 24 +3.3V 42 NC
+```
+```
+7 CLKREQ1# 25 MINIPCIE_RXP1 43 GND
+```
+```
+8 USIM_VCC 26 GND 44 NC
+9 GND 27 GND 45 NC
+```
+```
+10 USIM_DATA 28 +1.5V 46 NC
+11 MINIPCIE_CLKN1 29 GND 47 NC
+```
+```
+12 USIM_CLK 30 SMB_CLK 48 +1.5V
+13 MINIPCIE_CLKP1 31 MINIPCIE_TXN1 49 NC
+```
+```
+14 USIM_RST 32 SMB_DATA 50 GND
+15 GND 33 MINIPCIE_TXP1 51 NC
+```
+```
+16 USIM_VPP 34 GND 52 +3.3V
+```
+```
+17 NC 35 GND
+18 GND 36 USB_DN1
+```
+```
+2.3.15 Mini PCI-Express / mSATA Socket
+```
+```
+MPCIE1
+```
+```
+1 2
+```
+```
+51 52
+```
+
+```
+Pin Definition Pin Definition
+1 +3.3V 2 +3.3V
+3 GND 4 +3.3V
+5 GND 6 +1.8S
+7 USB2_D+ 8 +3.3V
+9 USB2_D- 10 NC
+11 GND
+21 +3.3V 20 NC
+23 NC 22 NC
+25 NC 24 NC
+27 GND 26 NC
+29 USB_RxN0 28 NC
+31 USB_RxP0 30 SIM_RST
+33 GND 32 SIM_CLK
+35 USB_TxN0 34 SIM_DATA
+37 USB_TxP0 36 SIM_VDD
+39 GND 38 NC
+41 PCIE_RxN0 40 NC
+43 PCIE_RxP0 42 NC
+45 GND 44 NC
+47 PCIE_TxN0 46 NC
+49 PCIE_TxP0 48 NC
+51 GND 50 PCIE_RST#
+53 REFCLK1- 52 CLK_REQ#
+55 REFCLK1+ 54 PCIE_WAKE#
+57 GND 56 NC
+59 NC 58 NC
+61 NC 60 NC
+63 NC 62 NC
+65 NC 64 NC
+67 NC 66 NC
+69 +3.3V 68 NC
+71 GND 70 +3.3V
+73 GND 72 +3.3V
+75 +3.3V 74 +3.3V
+```
+**Chapter 2: Switches and Connectors**
+
+```
+2.3.16 M.2 B Key Socket
+```
+```
+M2_KB1
+```
+```
+75 74
+```
+```
+1 2
+```
+
+**Chapter 2: Switches and Connectors**
+
+```
+2.3.17 SIM Card Socket
+```
+```
+SIM1 - 2
+```
+```
+Pin Definition Pin Definition
+```
+```
+C1 UIM_PWR C6 UIM_VPP
+```
+```
+C2 UIM_RESET C7 UIM_DATA
+```
+```
+C3 UIM_CLK CD NC
+```
+```
+C5 GND COM GND
+```
+```
+C1
+COM
+```
+```
+Pin Definition Pin Definition
+```
+```
+1 DC INPUT 6 DO1
+```
+```
+2 DI1 7 DO2
+```
+```
+3 DI2 8 DO3
+```
+```
+4 DI3 9 DO4
+```
+```
+5 DI4 10 GND
+```
+```
+2.3.18 Digital Input / Output Connector
+```
+```
+DIO1
+Connector Type: Terminal Block 1X10 10-pin, 3.5mm pitch
+```
+
+**Chapter 2: Switches and Connectors**
+
+
+```
+Pin RS232 Definition
+RS422 / 485 Full
+DuplexDefinition
+```
+```
+RS485 Half Duplex
+Definition
+```
+```
+1 DCD3 (DCD5) TX3-(TX5-) DATA3-(DATA5-)
+```
+```
+2 RxD3 (RxD5) TX3+ (TX5+) DATA3+ (DATA5+)
+```
+```
+3 TxD3 (TxD5) RX3+ (RX5+)
+```
+```
+4 DTR3 (DTR5) RX3-(RX5-)
+```
+```
+5 GND
+```
+```
+6 DSR3 (DSR5)
+```
+```
+7 RTS3 (RTS5)
+```
+```
+8 CTS3 (CTS5)
+```
+```
+9 RI3 (RI5)
+```
+**Chapter 2: Switches and Connectors**
+
+```
+2.3.19 RS232 / RS422 / RS485 Connector
+```
+```
+CN1 – 2
+Connector Type: 9-pin D-Sub
+```
+```
+Pin Definition
+```
+```
+1 - 2 PC Mode
+```
+```
+2 - 3 CAR Mode
+```
+```
+2.3.20 PC / CAR Mode Switch
+```
+```
+SW1
+```
+
+## Chapter 3 System Setup
+
+
+### 3.1 Set torque force to 3.5 kgf-cm to execute all the screwing and
+
+### unscrewing.
+
+#### 3.2 Removing chassis bottom cover
+
+1. Turn the system upside down. Unscrew the 4 screws (M3x5L) on the bottom cover.
+2. Now you can remove the bottom cover.
+
+**Chapter 3: System Setup**
+
+```
+In order to prevent electric shock or system damage, before removing the
+chassis cover, must turn off power and disconnect the unit from power source.
+```
+###### W
+
+###### ARNING
+
+
+#### 3.3 Removing HDD bracket
+
+1. Unscrew four screws (M3x5L) circled below.
+2. Now you can remove the HDD bracket.
+
+**Chapter 3: System Setup**
+
+
+#### 3.4 Removing chassis top cover
+
+1. Unscrew the three screws (M3x5L) and two copper stud (M3x11L) highlighted below.
+2. Hold the body of the system and lift it vertically away from the top cover.
+3. Top cover separated from the system body.
+
+**Chapter 3: System Setup**
+
+
+#### 3.5 Installing SODIMM
+
+1. Place the system body with SODIMM socket facing upward.
+2. Insert memory module from 45 degree direction.
+3. Press the memory module vertically downward until you hear the “click” sound. Make sure the
+    memory module is firmly in place.
+
+**Chapter 3: System Setup**
+
+
+#### 3.6 Installing Mini PCIe card / mSATA
+
+1. Place the system body upside down so you can see the 2x mini card socket. Mini PCIe2 (CN3)
+    can support mSATA.
+2. Insert mini PCIecard or mSATA module from 45 degree direction.
+3. Press the mini PCIecard or mSATA module down and lock it with two screws (M2x3.7L).
+
+**Chapter 3: System Setup**
+
+```
+M.2 (B key)
+```
+```
+Mini PCIe2 / mSATA
+```
+
+#### 3.7 Installing antenna
+
+1. Remove antenna hole cover on the system panel.
+2. Have antenna jack penetrate through the hole.
+3. Put on washer and fasten the nut with antenna jack.
+
+**Chapter 3: System Setup**
+
+```
+Front
+```
+```
+Rear
+```
+
+4. Assemble the antenna and antenna jack together.
+5. Attach the RF connector at the cable-end onto the communication module.
+
+**Chapter 3: System Setup**
+
+
+#### 3.8 Assemble chassis top cover
+
+1. Place both top cover and system body upside down as shown below.
+2. Ensure thermal pad is in place where the CPU is located or paste the thermal pad back on the
+    CPU thermal block.
+3. Put on washer and fasten the nut with antenna jack.
+
+**Chapter 3: System Setup**
+
+
+4. Push the system body down until it is firmly in place.
+5. Fasten the three screws (M3x5L) and two copper stud (M3x11L) to lock the system body
+    with top cover.
+
+**Chapter 3: System Setup**
+
+
+#### 3.9 Installing SATA HDD
+
+1. Lock the 2.5” HDD with HDD bracket using four screws (M3x4L).
+2. Slide the iron plate into the opening on top cover and then place the entire bracket down.
+
+**Chapter 3: System Setup**
+
+
+3. Press the entire bracket following the below direction so the SATA connector is firmly plugged
+    into the HDD.
+4. Fasten the four screws (M3x5L) to lock the HDD bracket in place.
+
+**Chapter 3: System Setup**
+
+
+#### 3.10 Assemble chassis bottom cover
+
+1. Place the bottom cover according to the below direction and make sure the rail is facing inside the system.
+2. Lock the bottom cover with the four screws (M3x5L).
+
+**Chapter 3: System Setup**
+
+
+#### 3.11 Installing SIM card
+
+1. SIM card socket is located on the front panel of the system. Unscrew one screw (M3x5L)
+    to remove the SIM card socket cover.
+2. Now you can insert SIM card into the socket.
+
+**Chapter 3: System Setup**
+
+```
+SIM 2
+```
+```
+SIM 1
+```
+
+**Chapter 3: System Setup**
+
+3. Please note that the installation of SIM 1 and SIM 2 has to match the installation of mini PCIe
+    sockets.
+4. To uninstall SIM card, simply press the installed SIM card and then the card will be pushed out.
+
+```
+SIM Card Socket Number Matching Mini PCIeSlot
+```
+```
+SIM 1 M.2_KB1
+```
+```
+SIM 2 Mini PCIe 1
+```
+```
+M.2_KB1 to SIM 1 slot
+```
+```
+Mini PCIe 1 to SIM 2 slot
+```
+
+**Chapter 3: System Setup**
+
+### 3.12 Installing wall mount kit
+
+###### 1. Wall mount kit is available for BCO-2000 series included in the standard package.
+
+###### 2. Place the system upside down so you can see the bottom cover. The highlighted
+
+###### screw holes below will be used.
+
+
+**Chapter 3: System Setup**
+
+3. Lock the wall mount kit with eight screws (M3x5L, Nylok).
+
+
+### 3.13 Installing VESA mount kit
+
+1. VESA mount kit is available for RCO-1000 series as optional accessories.
+2. Place the system upside down so you can see the bottom cover. The highlighted screw holes below will
+    be used.
+3. Place the VESA mount kit (for system) on top of the system aligning the matching screw holes.
+
+**Chapter 3: System Setup**
+
+```
+For Panel For System
+```
+
+4. Lock the VESA mount kit (for system) with four screws (M3x8L, Nylok).
+5. VESA mount kit (for panel) should be locked on the back of the panel with four screws.
+6. Now the system can be hang in the back of the panel using the hooks.
+
+**Chapter 3: System Setup**
+
+
+**Chapter 3: System Setup**
+
+### 3.14 Installing side mount kit
+
+1. Side mount kit is available for RCO-1000 series as optional accessories.
+2. Place the system upside down so you can see the bottom cover. The highlighted screw holes below will
+    be used.
+3. Place the side mount kit on top of the system aligning the matching screw holes.
+
+
+4. Lock the side mount kit with four screws (M3x8L, Nylok).
+
+**Chapter 3: System Setup**
+
+
+### 3.15 Installing DIN rail holder
+
+1. Din rail holder is available for RCO-1000 series as optional accessories.
+2. Place the system upside down so you can see the bottom cover. The highlighted screw holes below will
+    be used.
+3. Place the din rail holder on top of the bottom cover and lock it with two screws (M4x5L, Nylok).
+
+**Chapter 3: System Setup**
+
+
+## Chapter 4 BIOS Setup
+
+
+### 4.1 BIOS Introduction
+
+```
+The BIOS provides an interface to modify the configuration. When the battery is removed,
+all the parameters will be reset.
+```
+```
+BIOS Setup
+Power on the embedded system and by pressing <Del>immediately allows you to enter the setup
+screens.If the message disappears before you respond and you still wish to enter the Setup, restart the
+system by turning it OFF and ON or pressing the RESET button.
+You may also restart the system by simultaneously pressing <Ctrl>, <Alt>, and <Delete> keys.
+```
+```
+Main Setup
+The main menu lists the setup functions you can make changes to. You can use the arrow keys ( ↑↓ )
+to select the item. The on-line description of the highlighted setup function is displayed at the bottom
+of the screen.
+```
+```
+General Help <F1>
+The BIOS setup program provides a General Help screen. You can call up this screen from any menu by
+simply pressing <F1>. The Help screen lists the appropriate keys to use and the possible selections for
+the highlighted item. Press <Esc> to exit the Help screen.
+```
+**Chapter 4: BIOS Setup**
+
+### Control Keys
+
+```
+<→> <←> Select Screen
+```
+```
+<↑> <↓> Select Item
+```
+```
+<Enter> Select
+```
+```
+<Page Up/+> Increases the numeric value or makes changes
+```
+```
+<Page Down/-> Decreases the numeric value or makes changes
+```
+```
+<F1> General Help
+```
+```
+<F2> Previous Value
+```
+```
+<F3> Load Optimized Defaults
+```
+```
+<F4> Save Configuration and Exit
+```
+```
+<Tab> Select Setup Fields
+```
+```
+<Esc> Exit BIOS Setup
+```
+
+### 4.2 Main Setup
+
+```
+Press <Del> to enter BIOS CMOS Setup Utility. The Main setup screen is showed as following when the
+setup utility is entered. System Date/Time is set up in the Main Menu.
+```
+```
+◼ System Date
+Set the system date. Please use <Tab> to switch between data elements.
+```
+```
+◼ System Time
+Set the system time. Please use <Tab> to switch between time elements.
+```
+**Chapter 4: BIOS Setup**
+
+
+### 4.3 Advanced Setup
+
+**Chapter 4: BIOS Setup**
+
+
+#### 4.3.1 CPU Configuration
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Intel (VMX) Virtualization
+Technology
+```
+```
+Disabled,
+Enabled [Default]
+```
+```
+When enabled, a VMM can utilize the
+additional hardware capabilities provided by
+Virtualization Technology.
+```
+```
+Active Processor Cores
+```
+```
+All [Default]
+1
+2
+3
+```
+```
+Number of cores to enable in each processor
+package.
+```
+```
+C states EnabledDisabled, [Default] Enable/Disable CPU Power Management. Allows CPU to go to C states when it's not 100% utilized.
+```
+
+#### 4.3.2 PCH-FW Configuration
+
+**Chapter 4: BIOS Setup**
+
+
+#### 4.3.3 SATA and RST Configuration
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Port0 ~1 EnabledDisabled, [Default] Enable or Disable SATA Port.
+```
+```
+SATA Device Type Hard Disk DriveSolid State Drive [Default] , Identify the SATA port is connected to Solid State Drive or Hard Disk Drive.
+```
+
+#### 4.3.4 Trusted Computing
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Security Device Support EnabledDisabled, [Default] ,
+```
+```
+Enable/Disable BIOS support for security
+device. O.S. will not show Security
+Device.TCGEFI protocol and INT1A interface
+will not be available.
+```
+```
+Pending operation NoneTPM Clear [Default] ,
+```
+```
+Schedule an Operation for the Security Device.
+NOTE: Your Computer will reboot during restart
+in order to change State of Security Device.
+```
+
+#### 4.3.5 ACPI Settings
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Enable Hibernation EnabledDisabled , [Default],
+```
+```
+Enables or Disables System ability to
+Hibernate (OS/S4 Sleep State). This option
+may not be effective with some operating
+systems.
+```
+```
+ACPI Sleep State S3 (Suspend to RAMSuspend Disabled, )[Default]
+```
+```
+Select the highest ACPI sleep state the
+system will enter when the SUSPEDN
+button is pressed.
+```
+
+#### 4.3.6 Super IO Configuration
+
+```
+This setting allows you to select options for the Super IO Configuration, and change the value of the
+selected option.
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Watch Dog Timer Disabled Enabled [Default], Enabled or Disabled Watch Dog Timer function.
+```
+```
+Watch Dog Timer Count Mode Second ModeMinute Mode [Default] , Select Second Mode or Minute Mode.
+```
+```
+Watch Dog Timer Time out
+Value 20~255(Second) [Default],
+1~255(Minute)
+```
+```
+Watch Dog Timer Time out Value.
+```
+```
+Item Description
+```
+```
+Serial Port 1 Configuration Set Parameters of Serial Port 1 (COMA).
+```
+```
+Serial Port 2 Configuration Set Parameters of Serial Port 2 (COMB).
+```
+```
+Serial Port 3 Configuration Set Parameters of Serial Port 3 (COMC).
+```
+```
+Serial Port 4 Configuration Set Parameters of Serial Port 4 (COMD).
+```
+```
+Serial Port 5 Configuration Set Parameters of Serial Port 5 (COME).
+```
+```
+Serial Port 6 Configuration Set Parameters of Serial Port 6 (COMF).
+```
+
+```
+◼ Serial Port 1 Configuration
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Serial Port EnabledDisabled, [Default] Enable or Disable Serial Port (COM).
+```
+```
+Change Settings
+```
+```
+Auto [Default] ,
+IO=3F8h; IRQ=4; ,
+IO=3F8h; IRQ=3,4,5,6,7,9,10,11,12; ,
+IO=2F8h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=3E8h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=2E8h; IRQ=3,4,5,6,7,9,10,11,12;
+```
+```
+This item allows you to change the address &
+IRQ settings ofthe specified serial port.
+```
+```
+Device Type Select UART 232 [Default],
+UART 422,
+UART 485
+```
+```
+Set the Serial Port to RS232 & RS422 & RS485
+```
+```
+RS-485 Auto Flow
+Function
+```
+```
+Disabled,
+Enabled [Default] Enabled/Disabled RS485 Autoflow Function
+```
+
+```
+◼ Serial Port 2 Configuration
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Serial Port EnabledDisabled, [Default] Enable or Disable Serial Port (COM).
+```
+```
+Change Settings
+```
+```
+Auto [Default] ,
+IO=2F8h; IRQ=3; ,
+IO=3F8h; IRQ=3,4,5,6,7,9,10,11,12; ,
+IO=2F8h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=3E8h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=2E8h; IRQ=3,4,5,6,7,9,10,11,12;
+```
+```
+This item allows you to change the address &
+IRQ settings ofthe specified serial port.
+```
+```
+Device Type Select UART 232 [Default],
+UART 422,
+UART 485
+```
+```
+Set the Serial Port to RS232 & RS422 & RS485
+```
+```
+RS-485 Auto Flow
+Function
+```
+```
+Disabled,
+Enabled [Default] Enabled/Disabled RS485 Autoflow Function
+```
+
+```
+◼ Serial Port 3 Configuration
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Serial Port EnabledDisabled, [Default] Enable or Disable Serial Port (COM).
+```
+```
+Change Settings
+```
+```
+Auto [Default] ,
+IO=3E8h; IRQ=7; ,
+IO=3E8h; IRQ=3,4,5,6,7,9,10,11,12; ,
+IO=2E8h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=2F0h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=2E0h; IRQ=3,4,5,6,7,9,10,11,12;
+```
+```
+This item allows you to change the address &
+IRQ settings ofthe specified serial port.
+```
+```
+Device Type Select UART 232 [Default],
+UART 422,
+UART 485
+```
+```
+Set the Serial Port to RS232 & RS422 & RS485
+```
+```
+RS-485 Auto Flow
+Function
+```
+```
+Disabled,
+Enabled [Default] Enabled/Disabled RS485 Autoflow Function
+```
+
+```
+◼ Serial Port 4 Configuration
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Serial Port EnabledDisabled, [Default] Enable or Disable Serial Port (COM).
+```
+```
+Change Settings
+```
+```
+Auto [Default] ,
+IO=2E8h; IRQ=7; ,
+IO=3E8h; IRQ=3,4,5,6,7,9,10,11,12; ,
+IO=2E8h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=2F0h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=2E0h; IRQ=3,4,5,6,7,9,10,11,12;
+```
+```
+This item allows you to change the address &
+IRQ settings ofthe specified serial port.
+```
+```
+Device Type Select UART 232 [Default],
+UART 422,
+UART 485
+```
+```
+Set the Serial Port to RS232 & RS422 & RS485
+```
+```
+RS-485 Auto Flow
+Function
+```
+```
+Disabled,
+Enabled [Default] Enabled/Disabled RS485 Autoflow Function
+```
+
+```
+◼ Serial Port 5 Configuration
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Serial Port EnabledDisabled, [Default] Enable or Disable Serial Port (COM).
+```
+```
+Change Settings
+```
+```
+Auto [Default] ,
+IO=2F0h; IRQ=7; ,
+IO=3E8h; IRQ=3,4,5,6,7,9,10,11,12; ,
+IO=2E8h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=2F0h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=2E0h; IRQ=3,4,5,6,7,9,10,11,12;
+```
+```
+This item allows you to change the address &
+IRQ settings ofthe specified serial port.
+```
+```
+Device Type Select UART 232 [Default],
+UART 422,
+UART 485
+```
+```
+Set the Serial Port to RS232 & RS422 & RS485
+```
+```
+RS-485 Auto Flow
+Function
+```
+```
+Disabled,
+Enabled [Default] Enabled/Disabled RS485 Autoflow Function
+```
+
+```
+◼ Serial Port 6 Configuration
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Serial Port EnabledDisabled, [Default] Enable or Disable Serial Port (COM).
+```
+```
+Change Settings
+```
+```
+Auto [Default] ,
+IO=2E0h; IRQ=7; ,
+IO=3E8h; IRQ=3,4,5,6,7,9,10,11,12; ,
+IO=2E8h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=2F0h; IRQ=3,4,5,6,7,9,10,11,12;,
+IO=2E0h; IRQ=3,4,5,6,7,9,10,11,12;
+```
+```
+This item allows you to change the address &
+IRQ settings ofthe specified serial port.
+```
+```
+Device Type Select UART 232 [Default],
+UART 422,
+UART 485
+```
+```
+Set the Serial Port to RS232 & RS422 & RS485
+```
+```
+RS-485 Auto Flow
+Function
+```
+```
+Disabled,
+Enabled [Default] Enabled/Disabled RS485 Autoflow Function
+```
+
+**Chapter 4: BIOS Setup**
+
+#### 4.3.7 Hardware Monitor
+
+```
+These items display the current status of all monitored hardware devices/ components such as voltages and
+temperatures.
+```
+```
+Item Options Description
+```
+```
+Smart Fan Function DisabledEnabled [Default], Enabled or Disable Smart Fan
+```
+
+**Chapter 4: BIOS Setup**
+
+###### ◼ Smart Fan Mode Configuration
+
+```
+Item Options Description
+```
+```
+Fan1 SmartFanControl Auto DutyManual Duty Mode,-Cycle Mode [Default], Smart Fan Mode Select
+```
+```
+Temperature 1~4 1~100 Auto fan speed control. SMART FAN IV
+```
+```
+Duty Cycle 1~4 20~100 Auto fan speed control. SMART FAN IV
+```
+
+**Chapter 4: BIOS Setup**
+
+#### 4.3.8 Power IGN Mode
+
+```
+Item Options Description
+```
+```
+IGN Setting Bypass modeWrite IGN [Default]
+```
+```
+Bypass: BIOS will not control IGN Module,
+Write IGN: BIOS will write setting to IGN
+module
+```
+```
+Power On Delay
+```
+```
+10 Sec [Default]
+20 Sec
+30 Sec
+40 Sec
+50 Sec
+1 Min
+Manual Mode
+```
+```
+Power On Delay Select
+```
+```
+Manual Mode 10 Sec [Default] 10~60 Sec
+```
+```
+Power Off Delay
+```
+```
+3 Sec [Default] ,
+1 Min,
+5 Min,
+10 Min,
+30 Min,
+1 Hour,
+2 Hour,
+Manual Mode
+```
+```
+Power Off Delay Select
+```
+```
+Manual Mode 3 Sec [Default] 3~7200 Sec
+```
+
+#### 4.3.9 Serial Port Console Redirection
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Console Redirection DisabledEnabled [Default], These items allows you to enable or disable COM1 console redirection
+```
+
+#### 4.3.10 USB Configuration
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Legacy USB Support
+```
+```
+Enabled [Default]
+Disabled
+Auto
+```
+```
+Enables Legacy USB support. AUTO option
+disables legacy support if no USB devices are
+connected. DISABLE option will keep USB
+devices available only for EFI applications.
+```
+```
+XHCI Hand-off EnabledDisabled [Default]
+```
+```
+This is a workaround for OSewwithout XHCI
+hand-off support. The XHCI ownership change
+should be claimed by XHCI driver.
+```
+```
+USB Mass Storage
+Driver Support
+```
+```
+Disabled
+Enabled [Default]
+```
+```
+Enable/Disable USB Mass Storage Driver
+Support.
+```
+```
+USB transfer time-out
+```
+```
+1 sec ,
+5 sec ,
+10 sec ,
+20 sec [Default]
+```
+```
+The time-out value for Control, Bulk, and
+Interrupt transfers.
+```
+```
+Device reset time-out
+```
+```
+10 sec ,
+20 sec [Default] ,
+30 sec,
+40 sec
+```
+```
+USB mass storage device Start Unit command
+time-out.
+```
+```
+Device power-up
+delay
+```
+```
+Auto [Default]
+Manual
+```
+```
+Maximum time the device will take before it
+properly reports itself to the Host Controller.
+‘Auto’ uses default value: for a Root port it is
+100ms, for a Hub port the delay is taken form
+Hub descriptor.
+```
+
+#### 4.3.11 Network Stack Configuration
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Network Stack DisabledEnabled [Default] , Enable/Disable UEFI Network Stack.
+```
+```
+IPv4 PXE Support DisabledEnabled [Default] ,
+```
+```
+Enable/Disable IPv4 PXE boot support. If
+disabled, IPv4 PXE boot support will not be
+available.
+```
+```
+IPv6 PXE Support DisabledEnabled [Default] ,
+```
+```
+Enable/Disable IPv4 PXE boot support. If
+disabled, IPv6 PXE boot support will not be
+available.
+```
+```
+PXE boot wait time 0 [Default]
+```
+```
+Wait time in seconds to press ESC key to
+abort the PXE boot. Use either +/-or numeric
+keys to set the value.
+```
+```
+Media detect count^1 [Default]
+```
+```
+Number of times the presence of media will
+be checked. Use either +/-or numeric keys to
+set the value.
+```
+
+### 4.4 Chipset
+
+```
+This section allows you to configure and improve your system and allows you to set up some system
+features according to your preference.
+```
+**Chapter 4: BIOS Setup**
+
+
+#### 4.4.1 System Agent (SA) Configuration
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+VT-d Enabled Disabled [Default] , VT-d capability.
+```
+```
+Above 4GB MMIO BIOS
+assignment
+```
+```
+Enabled [Default] ,
+Disabled
+```
+```
+Enable/Disable above 4GB MemoryMappedIO
+BIOS assignment\n\nThisis enabled
+automatically when Aperture Size is set to
+2048MB.
+```
+
+```
+◼ Memory Configuration
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Max TOLUD
+```
+```
+Dynamic [Default],
+1GB,
+1.25GB,
+1.5 GB,
+1.75 GB,
+2 GB,
+2.25 GB,
+2.5 GB,
+```
+```
+Maximum Value of TOLUD. Dynamic
+assignment would adjust TOLUD
+automatically based on largest MMIO length
+of installed graphic controller
+```
+
+```
+◼ Graphic Configuration
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+GTT Size 2MB,
+4MB,
+8MB [Default]
+```
+```
+Select the GTT Size.
+```
+```
+Aperture Size 128MB,
+256MB [Default] ,
+512MB,
+1024MB
+```
+```
+Select the Aperture Size.
+Note : Above 4GB MMIO BIOS assignment is
+automatically enabled when selecting
+2048MB aperture. To use this feature, please
+disable CSM Support.
+PSMI SUPPORT Disabled [Default] ,
+Enabled
+```
+```
+PSMI Enable/Disable.
+```
+```
+DVMT Pre-Allocated 32M , 64M,96M,128M,
+160M,4M, 8M,12M,
+16M,20M,24M, 28M,
+32M/F7,36M, 40M,44M,
+48M,52M,56M,
+60M [Default]
+```
+```
+Select DVMT 5.0 Pre-Allocated (Fixed)
+Graphics Memory size used by the Internal
+Graphics Device.
+```
+```
+DVMT Total GfxMem 128M,
+256M [Default] ,
+MAX
+```
+```
+Select DVMT5.0 Total Graphic Memory size
+used by the Internal Graphics Device.
+```
+```
+DDI2 Selection DP [Default] ,
+HDMI
+```
+```
+Selects DDI2 function: DP or HDMI
+```
+
+#### 4.4.2 PCH-IO Configuration
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Restore AC Power
+Loss
+```
+```
+Power On,
+Power Off [Default] ,
+Lase State
+```
+```
+Specify what state to go to when power is re-
+applied after a power failure (G3 state).
+```
+
+```
+◼PCI Express Configuration
+```
+**Chapter 4: BIOS Setup**
+
+
+```
+◼PCI Express Root Port 3 /4 /5 /7
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+PCI Express Root Port
+3 /4 /5 /7
+```
+```
+Disabled ,
+Enabled [Default] Control the PCI Express Root Port.
+```
+```
+ASPM
+```
+```
+Disabled [Default] ,
+L0s,
+L1,
+L0sL1,
+Auto
+```
+```
+Set the ASPM Level:
+Force L0s -Force all links to L0s State,
+AUTO -BIOS auto configure,
+DISABLE -Disables ASPM,
+```
+```
+PCIe Speed
+```
+```
+Auto [Default] ,
+Gen1 ,
+Gen2,
+Gen3
+```
+```
+Configure PCIe speed.
+```
+```
+Detect Non-Compliance Device Disabled Enabled [Default] , Detect Nonenable, it will take more time at POST time.-Compliance PCI Express Device. If
+```
+
+◼ **USB Configuration**
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+XHCI Compliance
+mode
+```
+```
+Disabled [Default] ,
+Enabled
+```
+```
+Option to enable Compliance Mode. Default is
+to disable Compliance Mode. Change to
+enabled for Compliance Mode testing.
+```
+
+◼ **HD Audio Configuration**
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+HD Audio Enabled Disabled [Default] ,
+```
+```
+Control Detection of the HD-Audio device.
+Disabled = HDA will be unconditionally
+disabled
+Enabled = HDA will be unconditionally
+enabled.
+```
+
+### 4.5 Security
+
+Security menu allow users to change administrator password and user password settings.
+
+◼ **Administrator Password**
+This item allows you to set Administrator Password.
+
+◼ **User Password**
+This item allows you to set User Password.
+
+**Chapter 4: BIOS Setup**
+
+
+◼ **Security Boot**
+
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Secure Boot Disabled Enabled [Default] ,
+```
+```
+Secure Boot feature is Active if Secure Boot is
+Enabled,PlatformKey(PK) is enrolled and the
+System is in User mode.
+The mode change requires platform reset
+```
+```
+Secure Boot Mode CustomStandard, [Default]
+```
+```
+Secure Boot mode options:Standardor
+Custom.
+In Custom mode, Secure Boot Policy variables
+can be configured by a physically present user
+without full authentication
+```
+
+```
+◼ Key Management
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Factory Key Provision Disabled Enabled [Default] ,
+```
+```
+Install factory default Secure Boot keys after
+the platform reset and while the System is in
+Setup mode
+```
+
+### 4.6 Boot
+
+```
+This menu allows you to setup the system boot options.
+```
+**Chapter 4: BIOS Setup**
+
+```
+Item Options Description
+```
+```
+Setup Prompt
+Timeout^1 [Default]
+```
+```
+Number of seconds to wait for setup
+activation
+key. 65535(0xFFFF) means indefinite waiting.
+```
+```
+Bootup NumLock
+State
+```
+```
+On [Default] ,
+Off Select the Keyboard NumLockstate.
+```
+```
+Full Screen Logo Show DisabledEnabled [Default] , Enables or disables Full Screen Logo Show option.
+```
+```
+Fast Boot DisabledEnabled [Default] ,
+```
+```
+Enables or disables boot with initialization of a
+minimal set of devices required to launch
+active boot option. Has no effect for BBS boot
+options.
+```
+```
+Boot Option #1 Set the system boot order.
+```
+
+### 4.7 Save & Exit
+
+```
+This setting allows users to configure the boot settings.
+```
+```
+■ Save Changes and Reset
+This item allows user to reset the system after saving the changes. This item allows user to reset the
+system after saving the changes.
+```
+```
+■ Discard Changes and Reset
+This item allows user to reset the system without saving any changes.
+```
+```
+■ Restore Defaults
+Use this item to restore /load default values for all the setup options.
+```
+**Chapter 4: BIOS Setup**
+
+
+## Appendix WDT & GPIO
+
+This appendix provides the sample codes of WDT (Watch
+Dog Timer) and GPIO (General Purpose Input/ Output).
+
+
+### WDT Sample Code
+
+WDT Setting
+
+**PsuedoCode**
+
+###### // IO Address 0xA16 is time value
+
+###### // IO Address 0xA15 is WDT enable and configuration
+
+###### Example, Set 0xA16=-0x03, 0xA15=0x31, it will reset after 3 seconds
+
+###### #define TimePort 0xA16
+
+###### #define TimeEnablePort 0xA15
+
+###### WriteByte ( TimePort ,0x 03 )
+
+###### WriteByte ( TimeEnablePort , 0x31 )
+
+**Appendix –WDT & GPIO**
+
+
+### GPIO Sample Code
+
+GPIO Setting
+
+The GPIO function is provided by SIO, and it can be accessed through its GPIO port. To access the GPIO
+register, write value to data port. The configuration on the RCO1000-EHL is described as below.
+
+**PsuedoCode**
+#define GPI_ADDR 0xA03h
+#define GPO_ADDR 0xA02h
+
+_//_ 0xA03h is Pin Status(default 0xF5 )(at IO_DI1(Bit4) ~ IO_DI4(Bit7))
+_ByteData=_ ReadByte _(_ GPI_ADDR _) //Read current_ Pin Status
+
+//Offset 0xA02h default setting is 0x5F (output pin set to output high) (at IO_DO1(Bit0) ~ IO_DO4(Bit3))
+_ByteData= 0x0F //set_ IO_DO1~ IO_DO4 to high
+WriteByte _(_ GPO_ADDR _, ByteData)_
+
+**Appendix –WDT & GPIO**
+
+```
+IO_DO4 I/O 0xA02h Bit3
+```
+```
+IO_DO3 I/O 0xA02h Bit2
+```
+```
+IO_DO2 I/O 0xA02h Bit1
+```
+```
+IO_DO1 I/O 0xA02h Bit0
+```
+```
+IO_DI4 I/O 0xA03h Bit7
+```
+```
+IO_DI3 I/O 0xA03h Bit6
+```
+```
+IO_DI2 I/O 0xA03h Bit5
+```
+```
+IO_DI1 I/O 0xA03h Bit4
+```
+
+###### Premio Inc. All Rights Reserved
+
+###### http://www.premioinc.com
+
+
