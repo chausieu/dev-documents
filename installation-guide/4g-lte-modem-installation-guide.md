@@ -1,4 +1,3 @@
-206 - 0204 - 000 Revision IR
 # 4G LTE Modem Installation Guide
 
 Follow the steps below to configure the AMIT LTE modem with your SIM card
@@ -16,6 +15,7 @@ Follow the steps below to configure the AMIT LTE modem with your SIM card
     slot usage
        a. Power up the unit and boot into the OS
        b. From a browser, go to 172.16.0.1 and login as admin/admin
+![image](https://github.com/user-attachments/assets/91eba5db-e69a-4f18-80a0-0a36b5e70985)
 
 ```
 c. It will prompt you to change the default admin password. Note the new password
